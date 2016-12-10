@@ -1,9 +1,8 @@
-# HuxBlog Boilerplate
+fork的[Hux的模板](https://github.com/Huxpro/huxpro.github.io)
+这个模板使用在[jellky](jekyllcn.com)环境下，试用中...
 
-##### This is the boilerplate of [Hux Blog](https://github.com/Huxpro/huxpro.github.io), all documents is over there!
+# Hux blog 模板
 
-#### [View Boilerplate &rarr;](http://huangxuan.me/huxblog-boilerplate/)
+### [我的博客在这里](http://huxpro.github.io)
 
-#### [View Live Hux Blog &rarr;](http://huangxuan.me)
-
-## If you like Hux Blog, Please star [huxpro.github.io repo](https://github.com/Huxpro/huxpro.github.io) instead of this! Thank you!
+### [模板在这里](http://huangxuan.me/huxblog-boilerplate/)
