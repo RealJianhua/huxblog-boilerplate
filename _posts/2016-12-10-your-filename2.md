@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: test Hello Blog
 subtitle: 'Hello World, Hello Blog'
