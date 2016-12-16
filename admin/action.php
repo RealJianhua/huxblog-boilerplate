@@ -68,8 +68,12 @@ function newFile( ) {
 		echo json_encode(array('msg' => '文件名已经存在', 'ok' => false));
 	} else {
 		$newfile = fopen($path, "w");
-		fclose($newfile);
-		echo json_encode(array('msg' => '新建成功', 'ok' => true, 'name' => $filename));
+		if($newfile) {
+			fclose($newfile);
+			echo json_encode(array('msg' => '新建成功', 'ok' => true, 'name' => $filename));
+		} else {
+			echo json_encode(array('msg' => '文件创建失败', 'ok' => false));
+		}
 	}
 }
 
