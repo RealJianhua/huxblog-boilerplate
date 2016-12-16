@@ -3,10 +3,6 @@
 <!DOCTYPE html>
 
 <?php
-function php_log($msg) {
-	echo("<script>console.log('".$msg."');</script>"); 
-}
-
 $filename = $_GET["editpath"];
 $filepath = "../../".$filename;
 $readContent = file_get_contents($filepath);
@@ -136,7 +132,7 @@ var simpleMDE = new SimpleMDE({
     		{
 	            name: "savetofile",
 	            action: function customFunction(editor){
-                	saveMDToBlogFile(editor)
+                	toggleAutoSave(editor)
             	},
 	            className: "fa fa-save",
 	            title: "Insert Meta-Data",
@@ -153,9 +149,9 @@ var simpleMDE = new SimpleMDE({
 	        {
 	            name: "publish",
 	            action: function customFunction(editor){
-                	publishToBlog(editor)
+                	publishBlog(editor)
             	},
-	            className: "fa fa-send blue",
+	            className: "fa fa-send publish_btn",
 	            title: "Publish to Blog",
 	        },
     	],
@@ -182,27 +178,25 @@ function insertMetaData(editor) {
 	replaceSelection(cm, options.insertTexts.yaml);
 }
 
-function saveMDToBlogFile(editor) {
-	if(!autosave) {
-		autosave = true;
+function toggleAutoSave(editor) {
+	autosave != autosave;
+	if(autosave) {
 		simpleMDE.options.autosave.enabled = true;
 		simpleMDE.autosave();
 		layer.msg('开始本地自动保存');
 	} else {
-		autosave = false;
 		simpleMDE.options.autosave.enabled = false;
 		layer.msg('已停止本地自动保存');
 	}
 }
 
-function publishToBlog(editor) {
+function publishBlog(editor) {
 	var index = layer.load(1);
 
 	var publishContent = editor.value();
 	$.post("action.php?action=publish", {"blog":publishContent, "filename":filename},
 		function callback(data, status) {
 			if(status) {
-				console.log(data);
 				var responseObject = $.parseJSON(data);
 				layer.msg(responseObject.msg);
 			} else {
@@ -223,12 +217,11 @@ function readFromLocalStorage(editor) {
 
 	if(localCachedValue.length > 0) {
 		editor.value(localCachedValue);
-		layer.msg('加载本地缓存成功，已替换文本框内容');
+		layer.msg('加载本地缓存成功，已替换文本内容');
 	} else {
-		layer.msg('没有本地缓存可读取');
+		layer.msg('没有本地缓存可用');
 	}
 }
-
 
 function replaceSelection(cm, replaceText) {
 	if(/editor-preview-active/.test(cm.getWrapperElement().lastChild.className))
@@ -256,20 +249,18 @@ function isLocalStorageAvailable() {
 		try {
 			localStorage.setItem("smde_localStorage", 1);
 			localStorage.removeItem("smde_localStorage");
+			return true;
 		} catch(e) {
-			return false;
+			console.log(e);
 		}
-	} else {
-		return false;
 	}
-
-	return true;
+	return false;
 }
 </script>
 
 <style type="text/css">
 
-.blue {
+.publish_btn {
 	font-size: 20px;
 	background-color: rgba(224,224,224,0.8);
 }

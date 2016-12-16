@@ -7,17 +7,8 @@ title: Admin
 <script src="https://cdn.staticfile.org/jquery/3.1.1/jquery.min.js"></script>
 <script src="{{ "/js/layer.js" | prepend: site.baseurl }}"></script>
 
-
 <?php 
-function php_log($msg) {
-    echo("<script>console.log('".$msg."');</script>"); 
-}
-
 if(!isset($_SESSION["username"])) {
-    php_log("unset username");
-    php_log("session:"+print_r($_SESSION));
-    $_SESSION['aaa'] = "aaa";
-     php_log("session:"+$_SESSION["aaa"]);
 ?>
 
 <script type="text/javascript">
@@ -32,7 +23,6 @@ layer.open({
         console.log(layero);
         username = $(layero).find("#username").val();
         password = $(layero).find("#password").val();
-        console.log(username+", "+password);
         if(username.trim().length > 0 && password.trim().length > 0) {
             login(username, password);
         }
@@ -40,13 +30,11 @@ layer.open({
 });
 
 function login(username, password) {
-    console.log("login username:"+username+", password:"+password);
     var index = layer.load(1);
     $.post("login.php", {"username":username, "password":password},
         function callback(data, status) {
             layer.close(index);
             if(status) {
-                console.log(data);
                 var responseObject = $.parseJSON(data);
                 layer.msg(responseObject.msg);
                 if(responseObject.ok) {
@@ -150,7 +138,6 @@ function createNewBlog(name) {
     $.get("action.php?action=newfile&filename="+name,
         function callback(data, status) {
             if(status) {
-                console.log(data);
                 var responseObject = $.parseJSON(data);
                 layer.msg(responseObject.msg);
                 if(responseObject.ok) {
@@ -172,7 +159,6 @@ function deleteBlog(name, viewIndex) {
     $.get("action.php?action=delete&filename="+name,
         function callback(data, status) {
             if(status) {
-                console.log(data);
                 var responseObject = $.parseJSON(data);
                 layer.msg(responseObject.msg);
                 $("#post-preview-"+viewIndex).remove();
