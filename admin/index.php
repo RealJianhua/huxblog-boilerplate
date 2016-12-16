@@ -161,7 +161,9 @@ function deleteBlog(name, viewIndex) {
             if(status) {
                 var responseObject = $.parseJSON(data);
                 layer.msg(responseObject.msg);
-                $("#post-preview-"+viewIndex).remove();
+                if(responseObject.ok) {
+                    $("#post-preview-"+viewIndex).remove();
+                }
             } else {
                 layer.msg("网络请求失败");
             }
