@@ -46,7 +46,6 @@ Jekyll 支持编译 [Liquid](http://www.cnblogs.com/lslvxy/p/3651936.html) 模�
 {% endfor %}
 {% endraw %}
 {% endhighlight %}
-```
 
 我几乎完全失去了前端能力，nav 这种在我看来算 “新标签”，你想想。平均写 5 行，google 一次语法。Google 的过程中发现有一些开发好的模板，其中比较好看的是 [Hux](https://huangxuan.me/)。
 
