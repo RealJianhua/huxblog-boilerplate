@@ -20,6 +20,8 @@ foreach ($usersConfig as $user) {
 	}
 }
 
+echo json_encode(array('msg' => '用户名或密码错误', 'ok' => false));
+
 function param($pkey) {
     $pvalue = $_GET[$pkey];
 	if(!isset($pvalue)) {
