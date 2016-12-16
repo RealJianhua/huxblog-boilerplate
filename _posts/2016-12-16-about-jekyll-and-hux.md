@@ -21,7 +21,8 @@ Jekyll 只是个编译工具，像 “博客聚合/分页”、“博客阅读�
 
 Jekyll 支持编译 [Liquid](http://www.cnblogs.com/lslvxy/p/3651936.html) 模板语言，提供了必要的变量可访问。开发起来简单，90% 的时间专注于前端开发，10% 的时间用于嵌入 Jekyll 的变量。像这样:
 
-```
+{% highlight html %}
+{% raw %}
 {% for post in paginator.posts %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
@@ -43,6 +44,8 @@ Jekyll 支持编译 [Liquid](http://www.cnblogs.com/lslvxy/p/3651936.html) 模�
 </div>
 <hr>
 {% endfor %}
+{% endraw %}
+{% endhighlight %}
 ```
 
 我几乎完全失去了前端能力，nav 这种在我看来算 “新标签”，你想想。平均写 5 行，google 一次语法。Google 的过程中发现有一些开发好的模板，其中比较好看的是 [Hux](https://huangxuan.me/)。
