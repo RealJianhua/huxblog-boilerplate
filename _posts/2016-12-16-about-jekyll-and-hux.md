@@ -21,7 +21,7 @@ Jekyll 只是个编译工具，像 “博客聚合/分页”、“博客阅读�
 
 Jekyll 支持编译 [Liquid](http://www.cnblogs.com/lslvxy/p/3651936.html) 模板语言，提供了必要的变量可访问。开发起来简单，90% 的时间专注于前端开发，10% 的时间用于嵌入 Jekyll 的变量。像这样:
 
-```html
+```
 {% for post in paginator.posts %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
