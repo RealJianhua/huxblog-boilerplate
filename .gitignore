@@ -6,3 +6,4 @@ node_modules
 *.sh
 deploy.js
 github-webhook-handler
+admin/users.conf
