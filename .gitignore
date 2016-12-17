@@ -7,3 +7,4 @@ node_modules
 deploy.js
 github-webhook-handler
 admin/users.conf
+_config.yml
