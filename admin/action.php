@@ -134,7 +134,7 @@ function getFilePathByName($name, $type = null) {
 }
 
 function callbackGithook() {
-	exec("bloghook", $out, $status);
+	exec("/bin/bloghook", $out, $status);
 	// echo print_r($out) . "," . print_r($status);
 
 }
