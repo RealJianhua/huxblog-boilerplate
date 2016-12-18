@@ -30,6 +30,7 @@ function publish() {
 	try {
 	    if(file_put_contents($path, $blog) > 0) {
 			echo json_encode(array('msg' => '发布成功', 'ok' => true, 'name' => $filename));
+			callbackGithook();
 		} else {
 			echo json_encode(array('msg' => '保存文件时错误，发布失败', 'ok' => false));
 		}
@@ -50,6 +51,7 @@ function delete() {
 	$path = getFilePathByName($filename);
 	if(unlink($path)) {
 		echo json_encode(array('msg' => '删除成功', 'ok' => true));
+		callbackGithook();
 	} else {
 		echo json_encode(array('msg' => '删除失败', 'ok' => false));
 	}
@@ -71,6 +73,7 @@ function newFile( ) {
 		if($newfile) {
 			fclose($newfile);
 			echo json_encode(array('msg' => '新建成功', 'ok' => true, 'name' => $filename));
+			callbackGithook();
 		} else {
 			echo json_encode(array('msg' => '文件创建失败', 'ok' => false));
 		}
@@ -97,6 +100,7 @@ function fileRename() {
 	} else {
 		rename($oldFilePath, $newFilePath);
 		echo json_encode(array('msg' => '重命名成功', 'ok' => true, 'name' => $newName));
+		callbackGithook();
 	}
 }
 
@@ -126,8 +130,11 @@ function getFilePathByName($name, $type = null) {
 	// 	$filePath = "../../_drafts/".$name;
 	// }
 	// return filePath;
-
 	return "../../".$name;
+}
+
+function callbackGithook() {
+	exec("bloghook");
 }
 
 ?>
