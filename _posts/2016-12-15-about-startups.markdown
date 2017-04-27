@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "创业2016"
+title:      "谈谈创业"
 subtitle:   "所有人都觉得没机会的行业，可能是有机会的，因为他们都认命了"
 author:     "jianhua"
 header-img: "img/post-bg-2015.jpg"
