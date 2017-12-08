@@ -1,3 +1,13 @@
+---
+layout:     post
+title:      "副省长是凶手"
+subtitle:   "城市，像一个装满了命运的铁笼子"
+author:     "jianhua"
+header-img: "img/post-bg-2015.jpg"
+categories: jekyll
+tags: [小说]
+---
+
 ## 副省长是杀人犯
 2005年，河南省枪毙了一个杀人犯，凶手生前是河南省副省长。
 
