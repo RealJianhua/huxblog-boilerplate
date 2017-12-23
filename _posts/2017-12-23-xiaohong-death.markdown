@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "省长之死：逃跑计划"
+title:      "省长夫人之死：逃跑计划"
 subtitle:   " 夜空中最亮的心，请指引我靠近你"
 author:     "jianhua"
 header-img: "img/post-bg-2015.jpg"
