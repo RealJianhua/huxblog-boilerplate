@@ -1,7 +1,7 @@
 ---
 
 layout:     post
-title:      "杀手老梁"
+title:      "杀人者老梁"
 subtitle:   "青天在看，人间在看"
 author:     "jianhua"
 header-img: "img/post-bg-2015.jpg"
